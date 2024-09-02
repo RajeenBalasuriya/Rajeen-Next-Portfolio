@@ -8,10 +8,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'dark-to-blue': 'linear-gradient(to bottom, #000000, #070F2B)', // Black to deep blue
+        'grey-to-purple': 'linear-gradient(to left, #535C91,#2D3250)', // Grey to purple
+        'grey-to-purple-up': 'linear-gradient(to left, #758195,#2D3250)'
+        
+        
       },
+      fontFamily: {
+        sign: ['Patrick Hand', 'sans-serif']
+      }
     },
   },
   plugins: [],
