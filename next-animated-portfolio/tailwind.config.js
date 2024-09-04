@@ -16,8 +16,11 @@ module.exports = {
       },
       fontFamily: {
         sign: ['Patrick Hand', 'sans-serif']
+      },
+      screens:{
+        iphoneSe:'360px'
       }
-    },
+    }
   },
   plugins: [],
 };
