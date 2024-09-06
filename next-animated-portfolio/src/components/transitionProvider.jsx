@@ -46,6 +46,9 @@ function checkPathName(pathName){
     if(pathName==="/"){
         return "Home";
     }
+    else if(pathName==="/projectss"){
+        return "Projects";
+    }
     else{
         return pathName.substring(1).toUpperCase().charAt(0)+pathName.substring(2);
     }
