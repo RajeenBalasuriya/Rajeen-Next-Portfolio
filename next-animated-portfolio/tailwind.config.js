@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'dark-to-blue': 'linear-gradient(to bottom, #000000, #070F2B)', // Black to deep blue
+        'dark-to-blue-up': 'linear-gradient(to top, #000000, #070F2B)', // Black to deep blue
         'grey-to-purple': 'linear-gradient(to left, #535C91,#2D3250)', // Grey to purple
         'grey-to-purple-up': 'linear-gradient(to left, #758195,#2D3250)'
         
