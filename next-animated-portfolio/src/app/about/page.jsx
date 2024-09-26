@@ -1,11 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useScroll } from "framer-motion";
+import Experience from "@/components/expeirience";
 
 const AboutPage = () => {
+  const containerRef = useRef();
+
+  const { scrollYProgress } = useScroll({ container: containerRef });
+
+  const skillRef = useRef();
+  // const isSkillRefInView = useInView(skillRef, {once:true});
+  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+
+  const experienceRef = useRef();
+  const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
+
   return (
     <motion.div
-      className="h-full"
+      className="h-full w-full overflow-x-hidden overflow-y-auto"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
@@ -77,28 +90,23 @@ const AboutPage = () => {
             </div>
             {/* BIOGRPAHY SCROLL SVG */}
             <svg>
-            <path
+              <path
                 d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
                 stroke="white"
                 strokeWidth="1"
               ></path>
               <path d="M12 6V14" stroke="white" strokeWidth="1"></path>
-              <path
-                d="M15 11L12 14L9 11"
-                stroke="white"
-                strokeWidth="1"
-              ></path>
-
+              <path d="M15 11L12 14L9 11" stroke="white" strokeWidth="1"></path>
             </svg>
           </div>
           {/* BIOGRPAHY CONTAINER */}
           {/* SKILLS CONTAINER */}
-          <div className="text-white flex felx-col gap-12 justify-center">
+          <div className="text-white flex flex-col gap-12 justify-center">
             {/* SKILLS TITLE */}
             <h1 className="font-bold text-2xl text-white">SKILLS</h1>
             {/* SKILL LIST */}
             <div className="flex gap-4 flex-wrap">
-            <div className="rounded  p-2 text-sm cursor-pointer bg-grey-to-purple text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-sm cursor-pointer bg-grey-to-purple text-white hover:bg-white hover:text-black">
                 JavaScript
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-grey-to-purple-up text-white hover:bg-white hover:text-black">
@@ -176,22 +184,37 @@ const AboutPage = () => {
             </div>
             {/* SKILL SCROLL SVG */}
             <svg>
-            <path
+              <path
                 d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
                 stroke="white"
                 strokeWidth="1"
               ></path>
               <path d="M12 6V14" stroke="white" strokeWidth="1"></path>
-              <path
-                d="M15 11L12 14L9 11"
-                stroke="white"
-                strokeWidth="1"
-              ></path>
-
+              <path d="M15 11L12 14L9 11" stroke="white" strokeWidth="1"></path>
             </svg>
           </div>
           {/* EXPERIENCE CONTAINER */}
-          <div className="text-white font-bold text-2xl">EXPERIENCE</div>
+          <div
+            className="flex flex-col gap-12 justify-center pb-48"
+            ref={experienceRef}
+          >
+            {/* EXPERIENCE TITLE */}
+            <motion.h1
+              initial={{ x: "-300px" }}
+              animate={isExperienceRefInView ? { x: "0" } : {}}
+              transition={{ delay: 0.2 }}
+              className="font-bold text-2xl text-white"
+            >
+              EXPERIENCE
+            </motion.h1>
+            <motion.div
+              initial={{ x: "-300px" }}
+              animate={isExperienceRefInView ? { x: "0" } : {}}
+              className="overflow-y-auto iphoneSe:bg-grey-to-purple bg-black p-3 rounded-lg rounded-s-lg"
+            >
+              <Experience></Experience>
+            </motion.div>
+          </div>
         </div>
         {/* SVG CONTAINER */}
         <div className=""></div>
