@@ -28,9 +28,9 @@ const Homepage = () => {
           </h1>
           {/* DESC */}
           <p className="md:text-xl iphoneSe:text-sm text-white text-justify">
-            I'm an IIT software engineering student with internship experience
+            I&apos;m an IIT software engineering student with internship experience
             at Fortude. Driven by a passion for technology and equipped with
-            strong interpersonal, hard work, and technical skills, I'm dedicated
+            strong interpersonal, hard work, and technical skills, I&apos;m dedicated
             to innovating and advancing the software industry for a better
             future.
           </p>
