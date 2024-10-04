@@ -1,11 +1,18 @@
-import axios from "axios"
 
-export async function loadExperiences(){
 
-    //call for the CMS 
-    const response = await axios.get("http://localhost:1337/api/experience");
-    const experiences=response.data.data.RajeenBalasuriya.data;
-    console.log(experiences);
-    return experiences;
+export async function loadExperiences() {
+  const response = await fetch("http://localhost:1337/api/experience", {
+    next: { revalidate: 86400 }, // Revalidate every 1 day
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch experiences");
+  }
+
+  const data = await response.json();
+  
+  console.log(data.data.RajeenBalasuriya.data);
+
+  
+  return data.data.RajeenBalasuriya.data;
 }
-
