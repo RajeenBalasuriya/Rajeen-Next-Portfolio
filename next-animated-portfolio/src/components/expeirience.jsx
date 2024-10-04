@@ -1,38 +1,10 @@
-import useSWR from 'swr';
-import { loadExperiences } from "@/lib/load-experiences";
+import React from 'react';
 
-const fetcher = async () => {
-  const data = await loadExperiences();
-  return data;
-};
-
-const Experience = () => {
-  const { data: experiences, error } = useSWR('experiences', fetcher, {
-    // Cache data for 24 hours
-    staleTime: 86400000, // 24 hours in milliseconds
-  
-    revalidateOnMount: true, // Fetch when the component mounts
-    // Don't refetch on window focus
-    revalidateOnFocus: false,
-    // Deduplication interval set longer than stale time
-    dedupingInterval: 86400000, // 24 hours in milliseconds
-    onErrorRetry: (error, key, config, revalidate) => {
-      console.error('Error loading experiences:', error.message);
-      // Customize error retry behavior if needed
-      if (error.status === 404) return; // Don't retry on 404 errors
-    },
-  });
-
-  if (error) {
-    console.error('Error fetching experiences:', error);
-  }
-
-  // If experiences is still undefined or an empty array, it means loading or no data
+const Experience = ({ experiences }) => {
   if (!experiences) return <div>Loading...</div>;
 
   return (
     <div className="relative">
-      {/* Center Line */}
       <div className="absolute left-1/2 top-0 w-1 bg-gray-600 h-full -translate-x-1/2"></div>
       {experiences.length === 0 ? (
         <div>No experiences found.</div>
@@ -45,6 +17,7 @@ const Experience = () => {
   );
 };
 
+// ExperienceItem remains the same
 const ExperienceItem = ({ experience, index }) => {
   return (
     <div className={`flex justify-between h-48 mb-8`}>
