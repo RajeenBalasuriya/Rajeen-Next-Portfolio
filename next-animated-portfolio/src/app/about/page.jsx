@@ -1,7 +1,7 @@
 // app/about/page.js
 
-import AboutClient from "@/components/AboutClient";
-import { loadExperiences } from "@/lib/load-experiences";
+import AboutClient from "../../components/aboutClient";
+import { loadExperiences } from "../../lib/load-experiences";
 
 const AboutPage = async () => {
   const experiences = await loadExperiences(); // Fetch experiences with revalidation
