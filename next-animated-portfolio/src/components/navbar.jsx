@@ -87,7 +87,7 @@ const NavBar = () => {
       </div>
 
       <div className="hidden md:flex gap-6 w-1/3 justify-end">
-        <Link href="#">
+        <Link href="https://github.com/RajeenBalasuriya">
           <Image
             src="/github-mark-white.svg"
             alt="logo"
@@ -95,10 +95,10 @@ const NavBar = () => {
             height={24}
           />
         </Link>
-        <Link href="#">
+        <Link href="https://www.linkedin.com/in/rajeen-balasuriya-61b93a243/">
           <Image src="/icons8-linkedin.svg" alt="logo" width={24} height={24} />
         </Link>
-        <Link href="#">
+        <Link href="https://medium.com/@rajeenbalasuriya1">
           <Image
             src="/medium-white-icon.svg"
             alt="logo"
@@ -106,7 +106,7 @@ const NavBar = () => {
             height={24}
           />
         </Link>
-        <Link href="#">
+        <Link href="https://stackoverflow.com/users/22897090/rajeen-balasuriya">
           <Image
             src="/icons8-stack-overflow.svg"
             alt="logo"

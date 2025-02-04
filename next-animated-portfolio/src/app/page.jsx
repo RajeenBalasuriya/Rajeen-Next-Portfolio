@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link"; // Import the Link component
 
 const Homepage = () => {
   return (
@@ -10,18 +11,18 @@ const Homepage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full overflow-hidden flex flex-col  lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="h-full overflow-hidden flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
-        <div className="h-1/2  lg:h-full lg:w-1/2 lg:right-11 relative iphoneSe:top-auto iphoneSe:right ">
+        <div className="h-1/2 lg:h-full lg:w-1/2 lg:right-11 relative iphoneSe:top-auto iphoneSe:right">
           <Image
             src="/RAJEEN BALASURIYA (1).svg"
             alt=""
             fill
-            className="object-contain "
+            className="object-contain"
           />
         </div>
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 iphoneSe:gap-6  items-center justify-center">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 iphoneSe:gap-6 items-center justify-center">
           {/* TITLE */}
           <h1 className="text-4xl iphoneSe:text-2xl md:text-5xl font-bold text-white">
             Shaping Digital Solutions, Building the Future.
@@ -36,12 +37,16 @@ const Homepage = () => {
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4 justify-center">
-            <button className="p-4 rounded-lg ring-1 iphoneSe:text-sm se:w-1/3 ring-black bg-white text-black">
-              View My Work
-            </button>
-            <button className="p-4 rounded-lg ring-1 iphoneSe:text-sm se:w-1/3 ring-black text-black bg-white">
-              Contact Me
-            </button>
+            <Link href="/projectss">
+              <button className="p-4 rounded-lg ring-1 iphoneSe:text-sm se:w-1/3 ring-black bg-white text-black">
+                View My Work
+              </button>
+            </Link>
+            <Link href="/contact">
+              <button className="p-4 rounded-lg ring-1 iphoneSe:text-sm se:w-1/3 ring-black text-black bg-white">
+                Contact Me
+              </button>
+            </Link>
           </div>
         </div>
       </div>
